@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranav P R - Developer Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* Base styles with transition for smooth theme change */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+            color: #111827; /* Default text color (gray-900 for max contrast) */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark mode colors for body */
+        .dark body {
+            background-color: #0f172a; /* Slate 900 for deep dark mode */
+            color: #f3f4f6; /* Light gray text (gray-100) */
+        }
+
+        /* Custom styles for glowing gradient button */
+        .glowing-button {
+            background-image: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+            transition: transform 0.2s, box-shadow 0.2s, background-image 0.2s;
+        }
+        .glowing-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.7);
+        }
+        
+        /* Subtle aesthetic pattern (Tech-related background) */
+        .tech-pattern {
+            background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+                              linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .dark .tech-pattern {
+            background-image: linear-gradient(to right, #1e293b 1px, transparent 1px),
+                              linear-gradient(to bottom, #1e293b 1px, transparent 1px);
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .dark .project-card {
+            background-color: #1e293b;
+            color: #f3f4f6;
+            border-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .dark .project-card:hover {
+             box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+        }
+    </style>
+</head>
+<!-- Enforcing high contrast text colors globally -->
+<body class="text-gray-900 dark:text-gray-100">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-lg dark:shadow-2xl dark:shadow-indigo-900/10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900 dark:text-gray-100 tracking-wider">
+                <span class="text-indigo-600">P.P.R.</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <!-- Nav links: text-gray-900 (light) / text-gray-300 (dark) -->
+                <a href="#projects" class="text-gray-900 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150">Projects</a>
+                <a href="#skills" class="text-gray-900 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150">Skills</a>
+                <a href="#contact" class="glowing-button text-white px-4 py-2 rounded-lg font-medium text-sm hidden sm:inline-block">Get In Touch</a>
+                
+                <!-- Dark Mode Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-full text-gray-800 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-150" aria-label="Toggle dark mode">
+                    <!-- Icon placeholder, updated by JS -->
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 tech-pattern">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                
+                <!-- Text Content (Left Side - or Top on Mobile) -->
+                <div class="lg:w-3/5 text-center lg:text-left">
+                    <span class="text-indigo-600 font-semibold uppercase tracking-wider mb-2 block">Hello, I’m Pranav P R.</span>
+                    <h1 class="text-5xl sm:text-6xl font-extrabold text-gray-900 dark:text-gray-100 leading-tight">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">Accelerating Delivery</span> with ML & Elegant UI.
+                    </h1>
+                    <!-- Bio Text (Left Aligned for readability) -->
+                    <p class="mt-6 text-lg text-gray-800 dark:text-gray-200 max-w-xl mx-auto lg:mx-0 space-y-2 text-left">
+                        <span class="block">Studying at Bharatamata College (2nd year Integrated Master's in AI and ML).</span>
+                        <span class="block font-medium">Self-taught developer | Frontend + backend | Shipping solo projects daily.</span>
+                        <span class="block">Leveraging AI to accelerate learning and delivery while writing production-grade code.</span>
+                        <span class="block">Passionate about elegant UI, creative tools, and turning imagination into live apps.</span>
+                    </p>
+                    <div class="mt-8 space-x-4 text-center lg:text-left">
+                        <a href="#projects" class="glowing-button text-white px-8 py-3 rounded-xl font-semibold inline-block shadow-lg">
+                            View My Solo Projects
+                        </a>
+                        <a href="mailto:pranavpr687@gmail.com" class="text-indigo-600 border border-indigo-600 px-8 py-3 rounded-xl font-semibold inline-block hover:bg-indigo-50 dark:hover:bg-gray-800 transition duration-150">
+                            Email Me
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Content (Right Side - or Bottom on Mobile) -->
+                <div class="lg:w-2/5 flex justify-center lg:justify-end">
+                    <!-- Profile Picture Placeholder -->
+                    <img 
+                        src="/mydumbface.jpeg"
+                        alt="mydumbface.jpej - Profile Picture"
+                        class="w-48 h-48 sm:w-64 sm:h-64 object-cover rounded-full shadow-2xl ring-4 ring-indigo-500/50 transform transition duration-500 hover:scale-105"
+                        onerror="this.onerror=null; this.src='mydumbface.jpej';"
+                    >
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. Skills Section -->
+        <section id="skills" class="bg-gray-50 dark:bg-gray-800 py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-4">My Toolkit</h2>
+                <!-- Subheading: text-gray-800 (light) / text-gray-300 (dark) -->
+                <p class="text-center text-lg text-gray-800 dark:text-gray-300 mb-12">Technologies I enjoy working with and specialize in.</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Skill Card 1: Frontend -->
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-xl transition duration-300 text-center">
+                        <div class="text-4xl text-blue-500 mb-3">
+                            <!-- SVG for Frontend Icon -->
+                            <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Frontend</h3>
+                        <!-- Skill text: text-gray-800 (light) / text-gray-200 (dark) -->
+                        <p class="text-sm text-gray-800 dark:text-gray-200">HTML, CSS, JavaScript, React, Tailwind CSS, Vue.js</p>
+                    </div>
+
+                    <!-- Skill Card 2: Backend -->
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-xl transition duration-300 text-center">
+                        <div class="text-4xl text-green-500 mb-3">
+                            <!-- SVG for Backend Icon -->
+                            <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5a2 2 0 01-2 2M5 12a2 2 0 00-2 2v5a2 2 0 002 2h14a2 2 0 002-2v-5a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Backend</h3>
+                        <!-- Skill text: text-gray-800 (light) / text-gray-200 (dark) -->
+                        <p class="text-sm text-gray-800 dark:text-gray-200">Node.js, Express, Python (Flask), REST APIs</p>
+                    </div>
+                    
+                    <!-- Skill Card 3: Database & ML -->
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-xl transition duration-300 text-center">
+                        <div class="text-4xl text-red-500 mb-3">
+                            <!-- SVG for Database Icon -->
+                            <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10m0 0h16a2 2 0 002-2V9a2 2 0 00-2-2H4a2 2 0 00-2 2v2m2 4h16"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Database & ML</h3>
+                        <!-- Skill text: text-gray-800 (light) / text-gray-200 (dark) -->
+                        <p class="text-sm text-gray-800 dark:text-gray-200">MongoDB, Pandas, Scikit-learn, TensorFlow</p>
+                    </div>
+
+                    <!-- Skill Card 4: Tools & AI -->
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-xl transition duration-300 text-center">
+                        <div class="text-4xl text-purple-500 mb-3">
+                            <!-- SVG for Tool Icon -->
+                            <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2v5m0 0v5M12 11h.01M18 13l-4 4m0 0l-4-4m4 4v3"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Tools & AI</h3>
+                        <!-- Skill text: text-gray-800 (light) / text-gray-200 (dark) -->
+                        <p class="text-sm text-gray-800 dark:text-gray-200">Git, Vercel, Render, Gemini, ChatGPT, Grok, Claude</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Projects Section -->
+        <section id="projects" class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-4">Featured Solo Projects</h2>
+                <!-- Subheading: text-gray-800 (light) / text-gray-300 (dark) -->
+                <p class="text-center text-lg text-gray-800 dark:text-gray-300 mb-12">Apps built from scratch, showcasing my full-stack and creative skills.</p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project Card 1: PulsePlay -->
+                    <div class="project-card bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700">
+                        <img 
+                            src="https://placehold.co/600x400/1e293b/a855f7?text=PulsePlay+-+Music+App" 
+                            alt="PulsePlay Mockup" 
+                            class="w-full h-48 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/a855f7?text=PulsePlay+Music+Player';"
+                        >
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">PulsePlay</h3>
+                            <!-- Description text: text-gray-800 (light) / text-gray-300 (dark) -->
+                            <p class="text-gray-800 dark:text-gray-300 text-sm mb-4">A modern music streaming interface and player built for seamless audio experience and personalized playlists.</p>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300 text-xs font-semibold px-2.5 py-0.5 rounded-full mr-2">React</span>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300 text-xs font-semibold px-2.5 py-0.5 rounded-full mr-2">Tailwind CSS</span>
+                            <a href="https://github.com/eddardstark687-rgb/PulsePlay" target="_blank" class="text-indigo-600 dark:text-indigo-400 text-sm font-medium mt-3 block hover:text-purple-600 dark:hover:text-purple-400">View Code &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2: Luminara -->
+                    <div class="project-card bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700">
+                        <img 
+                            src="https://placehold.co/600x400/4f46e5/ffffff?text=Luminara+-+Visuals" 
+                            alt="Luminara Mockup" 
+                            class="w-full h-48 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/4f46e5/ffffff?text=Luminara+Visuals+App';"
+                        >
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Luminara</h3>
+                            <!-- Description text: text-gray-800 (light) / text-gray-300 (dark) -->
+                            <p class="text-gray-800 dark:text-gray-300 text-sm mb-4">A creative tool or application focused on dynamic lighting and visual effects using advanced canvas/WebGL APIs.</p>
+                            <span class="inline-block bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300 text-xs font-semibold px-2.5 py-0.5 rounded-full mr-2">JavaScript</span>
+                            <span class="inline-block bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300 text-xs font-semibold px-2.5 py-0.5 rounded-full mr-2">Three.js</span>
+                            <a href="https://github.com/eddardstark687-rgb/luminara" target="_blank" class="text-indigo-600 dark:text-indigo-400 text-sm font-medium mt-3 block hover:text-purple-600 dark:hover:text-purple-400">View Code &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3: Nocturne Library -->
+                    <div class="project-card bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700">
+                        <img 
+                            src="https://placehold.co/600x400/065f46/d1fae5?text=Nocturne+Library+UI" 
+                            alt="Nocturne Library Mockup" 
+                            class="w-full h-48 object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/065f46/d1fae5?text=Nocturne+Library+App';"
+                        >
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Nocturne Library</h3>
+                            <!-- Description text: text-gray-800 (light) / text-gray-300 (dark) -->
+                            <p class="text-gray-800 dark:text-gray-300 text-sm mb-4">A clean, dark-themed digital library or e-reader application for managing and reading e-books and articles.</p>
+                            <span class="inline-block bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 text-xs font-semibold px-2.5 py-0.5 rounded-full mr-2">Vue.js</span>
+                            <span class="inline-block bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 text-xs font-semibold px-2.5 py-0.5 rounded-full mr-2">Firestore</span>
+                            <a href="https://github.com/eddardstark687-rgb/Nocturne-Library" target="_blank" class="text-indigo-600 dark:text-indigo-400 text-sm font-medium mt-3 block hover:text-purple-600 dark:hover:text-purple-400">View Code &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Contact Section (Static form placeholder) -->
+        <section id="contact" class="py-16 sm:py-24 bg-indigo-700 dark:bg-indigo-900">
+            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Let's Connect</h2>
+                <p class="text-indigo-200 dark:text-indigo-300 mb-8">Have a project idea or just want to chat? Send me a quick message and I'll get back to you!</p>
+                
+                <!-- NOTE: This is a static form placeholder. -->
+                <form id="contactForm" class="space-y-4 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-2xl">
+                    <div>
+                        <!-- Input fields: text-gray-900 (light input text) / dark:text-gray-100 (dark input text) -->
+                        <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-100 text-gray-900">
+                    </div>
+                    <div>
+                        <!-- Input fields: text-gray-900 (light input text) / dark:text-gray-100 (dark input text) -->
+                        <input type="email" id="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-100 text-gray-900">
+                    </div>
+                    <div>
+                        <!-- Input fields: text-gray-900 (light input text) / dark:text-gray-100 (dark input text) -->
+                        <textarea id="message" name="message" rows="4" placeholder="Your Message" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-100 text-gray-900"></textarea>
+                    </div>
+                    <button type="submit" class="glowing-button w-full text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition duration-300">
+                        Send Message
+                    </button>
+                    <!-- Success/Error Message Box -->
+                    <div id="statusMessage" class="mt-4 p-3 rounded-lg hidden text-sm font-medium"></div>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-950 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; 2025 Pranav P R Portfolio. Built with HTML & Tailwind CSS.</p>
+            <div class="mt-4 space-x-4">
+                <!-- Footer link colors are already fine with gray-400 against a dark background -->
+                <a href="https://github.com/eddardstark687-rgb" target="_blank" class="hover:text-white transition duration-150">GitHub</a>
+                <a href="https://www.linkedin.com/in/pranav-p-r-11136b324/" target="_blank" class="hover:text-white transition duration-150">LinkedIn</a>
+                <a href="mailto:pranavpr687@gmail.com" class="hover:text-white transition duration-150">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Contact Form Submission Logic and Theme Toggle Logic -->
+    <script>
+        // --- Theme Toggle Logic ---
+        const toggleButton = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        let currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+
+        if (currentTheme === 'dark') {
+            html.classList.remove('light');
+            html.classList.add('dark');
+        } else {
+             html.classList.remove('dark');
+             html.classList.add('light');
+        }
+
+        // Function to update the icon based on theme
+        function updateIcon(isDark) {
+            toggleButton.innerHTML = isDark ? 
+                // Sun Icon (when in dark mode)
+                '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>' :
+                // Moon Icon (when in light mode)
+                '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>';
+        }
+
+        updateIcon(currentTheme === 'dark');
+
+        toggleButton.addEventListener('click', () => {
+            const isDark = html.classList.toggle('dark');
+            if (isDark) {
+                html.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            }
+            updateIcon(isDark);
+        });
+        
+        // --- Form Submission Logic ---
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const statusMessage = document.getElementById('statusMessage');
+
+            // Simulate form submission delay
+            statusMessage.textContent = 'Sending...';
+            statusMessage.className = 'mt-4 p-3 rounded-lg text-sm font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100';
+            statusMessage.classList.remove('hidden');
+
+            setTimeout(() => {
+                // Since this is a static demo, we just simulate success.
+                statusMessage.textContent = 'Thank you, Pranav will get back to you! (Simulated)';
+                statusMessage.className = 'mt-4 p-3 rounded-lg text-sm font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100';
+                form.reset();
+            }, 1500);
+
+            // Hide the message after a few seconds
+            setTimeout(() => {
+                statusMessage.classList.add('hidden');
+            }, 5000);
+        });
+
+        // --- Smooth Scroll Logic ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
